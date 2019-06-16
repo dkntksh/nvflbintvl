@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="MoveFileByInternal.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MoveFileByInternal"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Height="994" Width="1168.5">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox x:Name="from_select_textbox" HorizontalAlignment="Left" Margin="175,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="679"/>
+        <TextBox x:Name="to_select_textbox" HorizontalAlignment="Left" Margin="177,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="677"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,60,0,0" TextWrapping="Wrap" Text="転送元" VerticalAlignment="Top" Height="28" Width="63"/>
+        <TextBlock HorizontalAlignment="Left" Margin="48,120,0,0" TextWrapping="Wrap" Text="転送先" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,211,0,0" TextWrapping="Wrap" Text="インターバル" VerticalAlignment="Top" Width="88"/>
+        <TextBox HorizontalAlignment="Left" Margin="180,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="276,210,0,0" TextWrapping="Wrap" Text="秒" VerticalAlignment="Top"/>
+        <Button x:Name="start_button" Content="転送" HorizontalAlignment="Left" Margin="786,192,0,0" VerticalAlignment="Top" Height="47" Width="140"/>
+        <Button x:Name="from_select_button" Content="選択" HorizontalAlignment="Left" Margin="873,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="From_select_button_Click">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="0.631"/>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="to_select_button" Content="選択" HorizontalAlignment="Left" Margin="873,123,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
