@@ -9,19 +9,18 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBox x:Name="from_select_textbox" HorizontalAlignment="Left" Margin="175,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="679"/>
-        <TextBox x:Name="to_select_textbox" HorizontalAlignment="Left" Margin="177,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="677"/>
+        <TextBox x:Name="to_select_textbox" HorizontalAlignment="Left" Margin="177,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="677"/>
         <TextBlock HorizontalAlignment="Left" Margin="46,60,0,0" TextWrapping="Wrap" Text="転送元" VerticalAlignment="Top" Height="28" Width="63"/>
-        <TextBlock HorizontalAlignment="Left" Margin="48,120,0,0" TextWrapping="Wrap" Text="転送先" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="49,211,0,0" TextWrapping="Wrap" Text="インターバル" VerticalAlignment="Top" Width="88"/>
-        <TextBox HorizontalAlignment="Left" Margin="180,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="276,210,0,0" TextWrapping="Wrap" Text="秒" VerticalAlignment="Top"/>
-        <Button x:Name="start_button" Content="転送" HorizontalAlignment="Left" Margin="786,192,0,0" VerticalAlignment="Top" Height="47" Width="140" Click="Start_button_click"/>
-        <Button x:Name="from_select_button" Content="選択" HorizontalAlignment="Left" Margin="873,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="From_select_button_Click">
-            <Button.RenderTransform>
-                <CompositeTransform Rotation="0.631"/>
-            </Button.RenderTransform>
-        </Button>
-        <Button x:Name="to_select_button" Content="選択" HorizontalAlignment="Left" Margin="873,123,0,0" VerticalAlignment="Top" Click="To_select_button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="48,150,0,0" TextWrapping="Wrap" Text="転送先" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,232,0,0" TextWrapping="Wrap" Text="インターバル" VerticalAlignment="Top" Width="88"/>
+        <TextBox x:Name="interbal_textbox" HorizontalAlignment="Left" Margin="180,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="276,231,0,0" TextWrapping="Wrap" Text="秒" VerticalAlignment="Top"/>
+        <Button x:Name="start_button" Content="転送" HorizontalAlignment="Left" Margin="786,223,0,0" VerticalAlignment="Top" Height="47" Width="140" Click="Start_button_click"/>
+        <Button x:Name="from_select_button" Content="選択" HorizontalAlignment="Left" Margin="873,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="From_select_button_Click"/>
+        <Button x:Name="to_select_button" Content="選択" HorizontalAlignment="Left" Margin="873,145,0,0" VerticalAlignment="Top" Click="To_select_button_Click"/>
+        <TextBlock x:Name="from_select_textbox_error_text" HorizontalAlignment="Left" Height="31" Margin="176,98,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="676" SelectionHighlightColor="Red"/>
+        <TextBlock x:Name="to_select_textbox_error_text" HorizontalAlignment="Left" Height="35" Margin="179,183,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="510" SelectionHighlightColor="Red"/>
+        <TextBlock x:Name="interbal_textbox_error_text" HorizontalAlignment="Left" Height="30" Margin="305,225,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="370" SelectionHighlightColor="Red"/>
 
     </Grid>
 </Page>

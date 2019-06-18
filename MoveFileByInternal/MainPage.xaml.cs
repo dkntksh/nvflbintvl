@@ -87,19 +87,25 @@ namespace MoveFileByInternal
         private void Start_button_click(object sender, RoutedEventArgs e)
         {
             // 転送ボタンを非活性
-            start_button.IsEnabled = true;
+            start_button.IsEnabled = false;
             // validate
+            if (has_error())
+            {
+                // エラーの場合、エラーメッセージを表示し、転送ボタンを活性化する
+                start_button.IsEnabled = true;
+            }
 
-            // エラーの場合、エラーメッセージを表示し、転送ボタンを活性化する
 
-            // fromディレクトリを回して、フォルダorファイルを１つ１つ取得
 
-            // 対象のフォルダorファイルを転送先にファイルを転送する
 
-            // 転送したファイルをログに出力
+                // fromディレクトリを回して、フォルダorファイルを１つ１つ取得
 
-            // 指定の秒数スリープする
-            SleepAsync(3);
+                // 対象のフォルダorファイルを転送先にファイルを転送する
+
+                // 転送したファイルをログに出力
+
+                // 指定の秒数スリープする
+                SleepAsync(3);
 
             // 全ての終了後、転送ボタンを活性化する
             start_button.IsEnabled = false;
@@ -109,6 +115,50 @@ namespace MoveFileByInternal
         private async void SleepAsync(int minites)
         {
             await Task.Delay(minites * 1000);
+        }
+
+        // エラーがあるかのチェック
+        private bool has_error()
+        {
+            bool hasError = false;
+            // 必須チェック
+            require_check(hasError);
+            if (hasError)
+            {
+                return hasError;
+            }
+            // 文字種チェック
+            // word_check(hasError);
+
+            // ディレクトリ存在チェック
+            // dir_check(hasError);
+
+            return hasError;
+        }
+
+        // 必須チェック
+        private void require_check(bool hasError)
+        {
+            // From
+            if (from_select_textbox.Text == null || from_select_textbox.Text == "")
+            {
+                from_select_textbox_error_text.Text = "転送元を入力してください。";
+                hasError = true;
+            }
+
+            // TO
+            if (to_select_textbox.Text == null || to_select_textbox.Text == "")
+            {
+                to_select_textbox_error_text.Text = "転送先を入力してください。";
+                hasError = true;
+            }
+
+            // Interbal
+            if (interbal_textbox.Text == null || interbal_textbox.Text == "")
+            {
+                interbal_textbox_error_text.Text = "インターバルを入力してください。";
+                hasError = true;
+            }
         }
     }
 
