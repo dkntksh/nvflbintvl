@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
 
 // 空白ページの項目テンプレートについては、https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x411 を参照してください
 
@@ -23,6 +24,9 @@ namespace MoveFileByInternal
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -93,19 +97,28 @@ namespace MoveFileByInternal
             {
                 // エラーの場合、エラーメッセージを表示し、転送ボタンを活性化する
                 start_button.IsEnabled = true;
+                return;
             }
-
-
-
+            try
+            {
+                Debug.WriteLine(from_select_textbox.Text);
 
                 // fromディレクトリを回して、フォルダorファイルを１つ１つ取得
-
-                // 対象のフォルダorファイルを転送先にファイルを転送する
-
-                // 転送したファイルをログに出力
-
-                // 指定の秒数スリープする
-                SleepAsync(3);
+                String[] dirs = Directory.GetFileSystemEntries(from_select_textbox.Text);
+                foreach (String path in dirs)
+                {
+                    // 対象のフォルダorファイルを転送先にファイルを転送する
+                    System.Diagnostics.Debug.WriteLine(path);
+                    // 転送したファイルをログに出力
+                    // 指定の秒数スリープする
+                    SleepAsync(3);
+                }
+            }
+            catch (System.UnauthorizedAccessException)
+            {
+                // アクセスできなかったので無視
+                Debug.WriteLine("error");
+            }
 
             // 全ての終了後、転送ボタンを活性化する
             start_button.IsEnabled = false;
