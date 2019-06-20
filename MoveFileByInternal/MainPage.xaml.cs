@@ -105,6 +105,7 @@ namespace MoveFileByInternal
 
                 // fromディレクトリを回して、フォルダorファイルを１つ１つ取得
                 String[] dirs = Directory.GetFileSystemEntries(from_select_textbox.Text);
+                Debug.WriteLine(from_select_textbox.Text);
                 foreach (String path in dirs)
                 {
                     // 対象のフォルダorファイルを転送先にファイルを転送する
@@ -121,7 +122,7 @@ namespace MoveFileByInternal
             }
 
             // 全ての終了後、転送ボタンを活性化する
-            start_button.IsEnabled = false;
+            start_button.IsEnabled = true;
 
         }
 
