@@ -88,7 +88,7 @@ namespace MoveFileByInternal
          * 転送ボタンクリック時
          * 
          */
-        private void Start_button_click(object sender, RoutedEventArgs e)
+        private async void Start_button_click(object sender, RoutedEventArgs e)
         {
             // 転送ボタンを非活性
             start_button.IsEnabled = false;
@@ -112,7 +112,8 @@ namespace MoveFileByInternal
                     System.Diagnostics.Debug.WriteLine(path);
                     // 転送したファイルをログに出力
                     // 指定の秒数スリープする
-                    SleepAsync(3);
+                    int interval = Int32.Parse(interbal_textbox.Text);
+                    await Task.Delay(interval * 1000);
                 }
             }
             catch (System.UnauthorizedAccessException)
@@ -124,11 +125,6 @@ namespace MoveFileByInternal
             // 全ての終了後、転送ボタンを活性化する
             start_button.IsEnabled = true;
 
-        }
-
-        private async void SleepAsync(int minites)
-        {
-            await Task.Delay(minites * 1000);
         }
 
         // エラーがあるかのチェック
