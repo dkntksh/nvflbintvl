@@ -97,6 +97,7 @@ namespace MoveFileByInternal
             {
                 // エラーの場合、エラーメッセージを表示し、転送ボタンを活性化する
                 start_button.IsEnabled = true;
+                System.Diagnostics.Debug.WriteLine("before return");
                 return;
             }
             try
@@ -135,11 +136,14 @@ namespace MoveFileByInternal
             require_check(hasError);
             if (hasError)
             {
-                return hasError;
+                return true;
             }
             // 文字種チェック
-            // word_check(hasError);
-
+            if (word_check(hasError))
+            {
+                System.Diagnostics.Debug.WriteLine("word_check hasError");
+                return true;
+            }
             // ディレクトリ存在チェック
             // dir_check(hasError);
 
@@ -169,6 +173,29 @@ namespace MoveFileByInternal
                 interbal_textbox_error_text.Text = "インターバルを入力してください。";
                 hasError = true;
             }
+            hasError = false;
+        }
+
+        private bool word_check(bool hasError)
+        {
+
+            String numString = interbal_textbox.Text;
+            long number1 = 0;
+            bool canConvert = long.TryParse(numString, out number1);
+            if (canConvert == true)
+            {
+                // OK
+                System.Diagnostics.Debug.WriteLine("word_check OK");
+            }
+            else
+            {
+                // NG
+                interbal_textbox_error_text.Text = "数字を入力してください。";
+                System.Diagnostics.Debug.WriteLine("word_check NG");
+                return true;
+            }
+
+            return false;
         }
     }
 
